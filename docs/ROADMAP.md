@@ -9,7 +9,8 @@ This is a **priority proposal**, not a release promise. Track implementation thr
 - [ ] Select shared event contract v1 with schema validation and time-zone/deletion semantics.
 - [ ] Verify current Vela BallerWatch ICS consumption without changes to production.
 - [ ] Agree on profile visibility rules before displaying Kept tasks on a shared TV.
-- [ ] Enforce the [cardless cost policy](COST_POLICY.md) across app agent instructions and plan no-card Kept admin identity ([issue #13](https://github.com/vudh1/friday/issues/13)).
+- [x] Enforce the [cardless cost policy](COST_POLICY.md) across app agent instructions and retire card-required Access bootstrap ([issue #13](https://github.com/vudh1/friday/issues/13); merged FRIDAY #14, BallerWatch #197, Kept #9, Vela #25).
+- [ ] Review the [staged cardless admin identity candidate](DECISIONS/0002-cardless-admin-identity.md) and [Kept draft PR #11](https://github.com/vudh1/kept/pull/11). Owner-approved identity enrollment, local D1 integration tests and dedicated device/profile grants remain blocked.
 
 **Exit:** all dependencies and data ownership documented; Vela's existing subscriptions untouched; no secret or private data disclosed; no new payment information required.
 

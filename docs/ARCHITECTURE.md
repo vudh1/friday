@@ -11,6 +11,10 @@
 | Vela TV | TV launcher, TV profiles, focus/navigation, local display preferences | Authorized calendar display, device pairing, remote-control state | Launcher operation and last-good local display |
 | FRIDAY (future) | Association of identities/households/devices, grants, integration routing, derived event views | Minimal metadata to consumers under appropriate scopes | Never a new canonical store for the other apps' domain records |
 
+## External upstream dependency
+
+[**nhcuong95/rsvp**](https://github.com/nhcuong95/rsvp) is the source-code repository for the independently maintained **Play RSVP** website (GitHub Pages and Google Apps Script/Sheets). It owns its sign-up and attendance records; BallerWatch monitors the published RSVP information for its pickup experience. The RSVP repository is an upstream dependency, **not** an additional FRIDAY-owned application, cross-app identity provider or FRIDAY-managed database. Its availability and permissions remain independent, and cataloging the source grants no write access to RSVP records or backend services.
+
 ## Proposed topology
 
 ```mermaid

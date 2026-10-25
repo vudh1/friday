@@ -9,6 +9,8 @@ Create **four separate ChatGPT Projects** to keep each codebase focused, while m
 | **Kept** | Appliance maintenance, shopping, encryption/sync, PWA releases | `vudh1/kept` repo and its current docs |
 | **Vela TV** | Sony/Samsung TV native app, profiles, remote, calendar, screensaver | `vudh1/velatv` repo and its current docs |
 
+**External source-code reference:** [nhcuong95/rsvp](https://github.com/nhcuong95/rsvp) is the upstream Play RSVP repository relevant to BallerWatch pickup monitoring. Consult its current source and deployment guidance when an RSVP integration changes. It remains independently owned and does not require a separate FRIDAY ChatGPT Project or grant BallerWatch/FRIDAY access to RSVP admin data.
+
 ## Suggested project instructions
 
 ### FRIDAY

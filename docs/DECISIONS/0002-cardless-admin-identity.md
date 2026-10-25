@@ -1,14 +1,14 @@
 # ADR 0002 — Cardless administrator identity candidate (GitHub OAuth + PKCE)
 
 **Date:** 2026-10-25  
-**Status:** Candidate staged; **not owner-selected for activation, security-approved, merged or deployed**.  
+**Status:** Owner approved GitHub sign-in as the administrator identity approach on 2026-10-25. **Implementation is still draft, unmerged, not security-approved, and not deployed or enrolled.**  
 **Tracking:** [FRIDAY #13](https://github.com/vudh1/friday/issues/13) · [Kept draft PR #11](https://github.com/vudh1/kept/pull/11) · [ADR 0001](0001-kept-reminder-consent.md)
 
 ## Decision boundary
 
 The owner's firm requirement is **no new payment information and no potentially billable integration without a separate informed decision**. Cloudflare Zero Trust Free enrollment required a billing profile and was declined. The existing Access-only Kept administrator Worker remains fail-closed. Kept's encrypted sync, BallerWatch and Vela's current features stay independent. No FRIDAY household data is currently published.
 
-For review, stage **GitHub OAuth web application authorization-code flow with PKCE S256** as a cardless administrator authentication candidate. GitHub is already a product account for the owner, but this is **not** equivalent to approval to link GitHub sign-in to FRIDAY or to expose any household data. Another defensible candidate is passkeys/WebAuthn with first-enrollment and recovery review.
+The owner explicitly approved **GitHub sign-in** for FRIDAY administration. The staged candidate uses GitHub OAuth web authorization-code flow with PKCE S256. This approves the identity-provider choice only: **no OAuth app has been registered, no production sign-in deployed, and no household data disclosure or TV grant is authorized**. Another defensible candidate is passkeys/WebAuthn with first-enrollment and recovery review.
 
 ## Why a dedicated Kept-owned identity boundary
 
@@ -24,7 +24,7 @@ Kept owns household data and can share at most the task projection covered by AD
 ## Design-specific launch gates
 
 1. Review [the staged implementation](https://github.com/vudh1/kept/pull/11) with security-minded code reviewers. Test actual D1 SQLite `DELETE ... RETURNING` one-time consumption, race behavior, real GitHub callback cookies, rate limits and failure paths in a local Wrangler/isolated preview.
-2. Owner must choose whether GitHub authentication is appropriate, explicitly register a **dedicated OAuth App**, and privately configure callback/approved account ID/secrets. Do not create a payment profile or broaden scopes. If account/registration requests payment details, **stop** and use another verified no-card option.
+2. The owner chose GitHub authentication; the owner must now register a **dedicated OAuth App**, and privately configure callback/approved account ID/secrets. Do not create a payment profile or broaden scopes. If account/registration requests payment details, **stop** and use another verified no-card option.
 3. Provision no auth Worker, D1 schema or cloud route before current provider plan/quota/overage review. Confirm existing Workers Free and D1 account configuration; source/CI **cannot** attest real invoices.
 4. Before Kept-to-Vela sharing, separately approve exact selected task summaries and one *named TV installation + profile* with expiring read-only `kept:reminders:read` grant. Pair using device-bound asymmetric keys; remote PIN, GitHub session or TV profile selection alone never suffices. Implement revocation and stale/offline display cutoff in both product repos.
 5. Negative tests: unselected/no grant, guest/profile switch, wrong/replayed/expired credentials, sharing disabled, logout/revoke, D1 quota exhausted, producer offline, malicious title, duplicate/stale/tombstoned events, source timezone/DST. Verify on actual TV hardware before claiming device availability.
@@ -38,6 +38,6 @@ Kept owns household data and can share at most the task projection covered by AD
 - [GitHub authorization-code, state, PKCE, callback documentation](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
 - [GitHub OAuth best practices](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app).
 - [Cloudflare D1 Free hard-limit behavior](https://developers.cloudflare.com/d1/platform/pricing/); daily limit exhaustion returns errors, not an automatic authenticated-data bypass.
-- Kept draft PR #11 has **seven passing local mock-based test groups**; CI, local real-D1 and hosted sign-in/device verification must be recorded separately. No OAuth app registration, binding, schema migration, Worker deployment, private household sharing or provider billing verification occurred in that change.
+- Kept draft PR #11 has **seven passing local mock-based test groups**, passing GitHub Validate CI, and an additional opt-in Node SQLite smoke test covering atomic replay/revocation/rate-limit SQL. Cloudflare D1 and hosted GitHub sign-in/device verification still require separate evidence. No OAuth app registration, binding, schema migration, Worker deployment, private household sharing or provider billing verification occurred in that change.
 
 If this candidate proves unsuitable (GitHub dependency, privacy, login UX, or provider availability), keep the current fail-closed Worker and explore passkeys/OIDC without exposing data.

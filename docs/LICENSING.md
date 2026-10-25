@@ -1,15 +1,15 @@
 # FRIDAY licensing policy
 
-**Decision:** Apache License 2.0 (`Apache-2.0`) is the recommended license for FRIDAY-owned original source code and documentation. This policy coordinates repository-level terms; it does **not** transfer copyright between products or override third-party rights.
+**Adopted decision (2026-10-25):** Apache License 2.0 (`Apache-2.0`) is the common license for FRIDAY-owned original source code and documentation. This policy coordinates repository-level terms; it does **not** transfer copyright between products or override third-party rights.
 
-| Repository | Baseline before cleanup | Target for original work |
+| Repository | Before cleanup | Verified `main` status on 2026-10-25 |
 | --- | --- | --- |
-| [FRIDAY](https://github.com/vudh1/friday) | Apache-2.0 in root `LICENSE` | Keep Apache-2.0 |
-| [BallerWatch](https://github.com/vudh1/ballerwatch) | `COPYRIGHT.md` says “All rights reserved”; no root `LICENSE` | Propose Apache-2.0 **subject to owner review of changed reuse rights** |
-| [Kept](https://github.com/vudh1/kept) | No root `LICENSE` | Add Apache-2.0 |
-| [Vela TV](https://github.com/vudh1/velatv) | Apache-2.0 in root `LICENSE` | Keep Apache-2.0 and improve third-party notices |
+| [FRIDAY](https://github.com/vudh1/friday) | Already Apache-2.0 | [Apache-2.0](https://github.com/vudh1/friday/blob/main/LICENSE); policy merged in [#18](https://github.com/vudh1/friday/pull/18) |
+| [BallerWatch](https://github.com/vudh1/ballerwatch) | “All rights reserved”; no root `LICENSE` | [Apache-2.0](https://github.com/vudh1/ballerwatch/blob/main/LICENSE); owner-approved change merged in [#208](https://github.com/vudh1/ballerwatch/pull/208) |
+| [Kept](https://github.com/vudh1/kept) | No root `LICENSE` | [Apache-2.0](https://github.com/vudh1/kept/blob/main/LICENSE), merged in [#12](https://github.com/vudh1/kept/pull/12) |
+| [Vela TV](https://github.com/vudh1/velatv) | Already Apache-2.0 | [Apache-2.0](https://github.com/vudh1/velatv/blob/main/LICENSE); notices updated in [#35](https://github.com/vudh1/velatv/pull/35) |
 
-This is a **target policy** until each repository's changes merge. Consult current `main` and GitHub's detected license before claiming a product's effective license.
+All four default branches were verified with the **same** canonical LICENSE Git blob SHA: `261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64`. Future updates should still verify the current default branches before reporting licensing status.
 
 ## Why Apache-2.0?
 
@@ -21,7 +21,7 @@ It permits use, modification, private use, distribution and commercial use, whil
 - FRIDAY, BallerWatch, Kept and Vela product names, marks and identities do not receive a trademark license under Apache-2.0. Do not imply endorsement.
 - No license grants credentials, access to private repositories, encrypted `runtime-state`, user-generated content, household records, participant identities, private calendar links or production environments.
 - [Play RSVP](https://github.com/nhcuong95/rsvp) is an independently owned upstream project, not a child repository. FRIDAY does not select or modify its license.
-- Publishing source publicly is not itself a copyright license. BallerWatch's proposed move from “All rights reserved” to Apache-2.0 is a substantive, generally irrevocable grant for covered contributions and must be reviewed before merge.
+- Publishing source publicly is not itself a copyright license. BallerWatch's move from “All rights reserved” to Apache-2.0 was an owner-approved, substantive and generally irrevocable grant for covered contributions; its change was reviewed and merged via [PR #208](https://github.com/vudh1/ballerwatch/pull/208). Future relicensing also requires owner approval.
 
 ## Future contributor and release checklist
 

@@ -5,6 +5,25 @@ This directory contains a **proposal**, not a deployed endpoint, user grant or f
 - [JSON Schema](event-v1.draft.schema.json)
 - [Sanitized example](event-v1.synthetic-example.json)
 
+## Draft contract checks
+
+```sh
+npm ci
+npm test
+```
+
+The repository test suite compiles this Draft 2020-12 schema with Ajv and
+full RFC 3339 format checks. Synthetic fixtures cover timed/all-day records,
+missing and forbidden fields, DST calendar boundaries, invalid instants,
+duplicate revisions and cancellation. Cross-field checks also reject unknown
+IANA zones, an ID with the wrong source prefix, and reversed time intervals.
+The suite runs in GitHub Actions when contracts/tests change.
+
+**These are coordination tests, not deployed producer/consumer validation.**
+The current JSON Schema cannot alone enforce cross-field date ordering, device
+grants, title sensitivity, recurrence identity or revocation. Each producer
+and consumer must implement equivalent checks before an integration ships.
+
 ## Semantics under review
 
 - **Producer:** BallerWatch or Kept remains the source of truth. FRIDAY stores at most reconstructible, consented projections and grants when a service is separately authorized.
@@ -19,8 +38,8 @@ This directory contains a **proposal**, not a deployed endpoint, user grant or f
 ## Review gates before adoption
 
 1. Approve consent, identity/provider, visibility scopes, grant TTL and revocation behavior.
-2. Complete producer/consumer fixtures for DST boundaries, all-day and recurrence, cancellation, duplicates and stale updates.
-3. Implement schema validation on both sides; this sample alone is **not** full compatibility testing.
+2. Complete **app-level** producer/consumer fixtures for DST boundaries, all-day and recurrence, cancellation, duplicates and stale updates. Repository-only synthetic contract tests are present.
+3. Implement schema and semantic validation on both sides; this synthetic test suite alone is **not** full compatibility testing.
 4. Complete privacy threat model and compare against existing ICS output. No cross-app writes in v1.
 5. Deploy only behind each owning repository's independent release workflow and user-approved rollout.
 

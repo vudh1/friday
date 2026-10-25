@@ -12,6 +12,14 @@ FRIDAY is a free-first, privacy-conscious ecosystem connecting independent apps 
 | **Kept** | Household appliances, maintenance reminders and shopping | [vudh1/kept](https://github.com/vudh1/kept) |
 | **Vela TV** | Minimal TV launcher, family calendar, ambient display and remote experiences | [vudh1/velatv](https://github.com/vudh1/velatv) |
 
+## External upstream source repositories
+
+| Upstream | Source repository | Relationship |
+| --- | --- | --- |
+| **Play RSVP** | [nhcuong95/rsvp](https://github.com/nhcuong95/rsvp) | Independently maintained RSVP website and Google Apps Script/Sheets backend; BallerWatch uses its published RSVP information as an upstream input for pickup tracking. |
+
+Play RSVP is **not a fourth FRIDAY-owned product**, and registering its source repository grants no access to its admin backend, spreadsheet, credentials or deployment pipeline. Verify current upstream behavior in its own repository before changing any dependent integration.
+
 This repository is the **ecosystem coordination home**: shared rules, integration contracts, design guidance, roadmap and future FRIDAY Core work. It is not a replacement for the three product repositories or their production deployment pipelines.
 
 ## The five principles

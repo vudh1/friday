@@ -25,7 +25,8 @@ FRIDAY means *Make every day feel like Friday*: make life simpler through cohere
 - Keep platform constraints honest: TV native launchers, iOS web notifications, device pairing and third-party integrations each require platform verification.
 - Preserve stable, existing calendar/ICS integrations while adding new ones.
 - Cache last-good results where appropriate. Failed weather, AI, sync, or notification services must not block primary navigation.
-- Do not introduce recurring costs without owner approval. Confirm current service quotas/terms rather than assuming fixed free-tier numbers.
+- Follow [docs/COST_POLICY.md](docs/COST_POLICY.md): **no new payment information**, billed/free-converting plans or potentially chargeable providers by default. Even a $0 tier requiring a card is blocked absent a new explicit owner decision. Check official current pricing, usage/overages, enforcement, fallback and rollback for every infrastructure/AI/auth change.
+- Source code, CI and GitHub issues **cannot certify actual $0 billing**. Only owner-authorized provider billing records can establish charges, and alerts may lag. Never claim an invoice was checked without evidence.
 
 ## Design expectations
 

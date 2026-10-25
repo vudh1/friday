@@ -58,3 +58,7 @@ This is a **public repository**. Never commit credentials, passwords, PINs, decr
 ## Contributions
 
 Open focused issues with acceptance criteria. Make changes in the product repository that owns the behavior. Changes to common protocols or design rules should be reviewed here before consumers adopt them. Keep integrations backwards-compatible and easy to disable.
+
+## License and attribution
+
+Original FRIDAY code and documentation are licensed under the [Apache License 2.0](LICENSE) (`Apache-2.0`). Copyright © 2026 Duong Vu and contributors. Each child product has its **own** root license and third-party obligations; see the [FRIDAY licensing policy](docs/LICENSING.md). The separate [Play RSVP](https://github.com/nhcuong95/rsvp) upstream is not licensed by FRIDAY. Product names/marks, third-party material and private user data are not granted additional rights by this license.

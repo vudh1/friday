@@ -43,3 +43,7 @@ Follow [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md). Prefer simple layouts, lo
 ## Delivery and reporting
 
 For each PR/task, report: intent; repositories/files changed; tests and results; runtime/deployment evidence; privacy and cost impact; compatibility/rollback; remaining gaps. Clearly separate **implemented**, **tested**, **deployed**, and **verified on device**.
+
+## Licensing and provenance
+
+Follow [docs/LICENSING.md](docs/LICENSING.md). The ecosystem's default for original code/docs is Apache-2.0, but verify the **actual** root license in each owning repository and do not relicense third-party content or an independently owned upstream. Retain external license texts, copyright notices and media/source credits. A copyright-policy change (especially BallerWatch's previous “All rights reserved” terms) requires an owner-reviewed PR before merge. Licensing cleanup does not authorize product deployment.

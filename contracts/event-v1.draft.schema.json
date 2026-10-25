@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vudh1/friday/blob/main/contracts/event-v1.draft.schema.json",
+  "title": "FRIDAY event projection v1 (DRAFT — not deployed)",
+  "description": "Minimal read-only event summary. Authorization is enforced by the producing adapter and transport, not by a field in this document.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "id",
+    "source",
+    "revision",
+    "category",
+    "title",
+    "status",
+    "visibility",
+    "time",
+    "sourceUpdatedAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 240,
+      "pattern": "^[a-z][a-z0-9_-]*:.+$",
+      "description": "Source-qualified opaque stable ID; must not encode PII or secrets."
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "maxLength": 48
+    },
+    "revision": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "Opaque monotonically comparable or source-consistent revision; consumer dedupes source+id+revision."
+    },
+    "category": {
+      "enum": [
+        "playing",
+        "watching",
+        "life"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "status": {
+      "enum": [
+        "confirmed",
+        "tentative",
+        "cancelled"
+      ]
+    },
+    "visibility": {
+      "enum": [
+        "public",
+        "authorized-profile"
+      ],
+      "description": "Classification only; not proof of authorization. Never send protected objects to ungranted consumers."
+    },
+    "time": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "startAt",
+            "timeZone"
+          ],
+          "properties": {
+            "kind": {
+              "const": "timed"
+            },
+            "startAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "endAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "timeZone": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 80
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "startDate",
+            "endDateExclusive",
+            "timeZone"
+          ],
+          "properties": {
+            "kind": {
+              "const": "all-day"
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "endDateExclusive": {
+              "type": "string",
+              "format": "date"
+            },
+            "timeZone": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 80
+            }
+          }
+        }
+      ]
+    },
+    "sourceUpdatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "detailsRef": {
+      "type": "string",
+      "maxLength": 240,
+      "pattern": "^[a-z][a-z0-9_-]*:.+$",
+      "description": "Opaque source-app reference, never a bearer URL or access token."
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "locationLabel": {
+          "type": "string",
+          "maxLength": 120
+        },
+        "channelLabel": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "Only verified broadcast labels."
+        }
+      }
+    }
+  }
+}

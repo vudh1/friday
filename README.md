@@ -28,7 +28,7 @@ This repository is the **ecosystem coordination home**: shared rules, integratio
 2. **Independent apps:** existing features continue working when FRIDAY or another app is offline.
 3. **User-controlled sharing:** each product owns its data; cross-product access is permission-scoped, revocable and minimal.
 4. **One design language:** quiet glass, readable hierarchy, predictable controls, distinct product accents.
-5. **Free by default:** reuse existing infrastructure; measure usage before introducing paid services.
+5. **Cardless by default:** use no-payment-method infrastructure; review quotas and provider billing separately before enabling any chargeable service.
 
 ## A typical connected experience
 
@@ -45,6 +45,7 @@ These are **target integrations**, not claims that every path is deployed today.
 - [Roadmap and acceptance criteria](docs/ROADMAP.md)
 - [ChatGPT Project organization](docs/CHATGPT_PROJECTS.md)
 - [Instructions for AI coding agents](AGENTS.md)
+- [Cost and billing safety](docs/COST_POLICY.md)
 
 ## Status
 

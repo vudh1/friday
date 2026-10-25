@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "ballerwatch:game:synthetic-001",
+  "source": "ballerwatch",
+  "revision": "synthetic-r1",
+  "category": "playing",
+  "title": "Practice match",
+  "status": "confirmed",
+  "visibility": "public",
+  "time": {
+    "kind": "timed",
+    "startAt": "2026-11-06T04:00:00Z",
+    "endAt": "2026-11-06T06:00:00Z",
+    "timeZone": "America/Los_Angeles"
+  },
+  "sourceUpdatedAt": "2026-10-25T10:00:00Z",
+  "display": {
+    "locationLabel": "Example Field"
+  }
+}

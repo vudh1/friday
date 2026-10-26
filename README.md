@@ -43,6 +43,8 @@ These are **target integrations**, not claims that every path is deployed today.
 - [Architecture and boundaries](docs/ARCHITECTURE.md)
 - [Shared design system](docs/DESIGN_SYSTEM.md)
 - [Roadmap and acceptance criteria](docs/ROADMAP.md)
+- [Current owner actions and cross-project execution plan](docs/EXECUTION_PLAN.md)
+- [Integration register and verified status](docs/INTEGRATION_REGISTER.md)
 - [ChatGPT Project organization](docs/CHATGPT_PROJECTS.md)
 - [Instructions for AI coding agents](AGENTS.md)
 - [Cost and billing safety](docs/COST_POLICY.md)

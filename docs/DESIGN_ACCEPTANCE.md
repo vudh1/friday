@@ -1,6 +1,6 @@
 # FRIDAY Quiet Glass — Design Adoption Checklist v1
 
-**Use per product PR.** This is a proposed acceptance matrix, not evidence of a completed app redesign. Child repositories and their own release gates remain authoritative.
+**Use per product PR and device acceptance.** This is a checklist, not proof that any particular app passed visual, accessibility or hardware checks. Child repositories and their release gates remain authoritative.
 
 ## Review artifact
 
@@ -8,6 +8,7 @@
 - [ ] Figma shows editable proposal and semantic state changes. Canva assets, if any, have original provenance and optimization notes.
 - [ ] Main task requires the same or fewer interactions; no critical function, settings route or accessibility feature is removed.
 - [ ] Token mapping is documented. Product accent remains distinct; recognizable family spacing/type/focus remains consistent.
+- [ ] Navigation/settings headings use intentional Title Case (e.g., `Household & Sync`), while sentence copy, proper names, dynamic data and localization preserve natural casing ([FRIDAY #25](https://github.com/vudh1/friday/issues/25)).
 
 ## Visual and accessibility
 

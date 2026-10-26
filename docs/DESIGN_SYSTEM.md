@@ -1,6 +1,6 @@
-# FRIDAY Design System v1 — Quiet Glass (proposal)
+# FRIDAY Design System v1 — Quiet Glass
 
-**Status:** Review-ready proposal; **not adopted by child apps and not production-verified**. FRIDAY owns the contract and review process; BallerWatch, Kept and Vela TV own their implementations and releases. This document supersedes the v0.1 draft only after its PR is reviewed and merged.
+**Status (October 26, 2026):** The FRIDAY [design contract PR #24](https://github.com/vudh1/friday/pull/24) is merged; BallerWatch, Kept and Vela TV have independently merged and published Quiet Glass UI changes. **CI/publishing evidence is not physical device or cross-platform accessibility acceptance.** FRIDAY owns the shared design contract; the child apps own their implementations, approvals and releases. See [FRIDAY design issue #6](https://github.com/vudh1/friday/issues/6) and the dated [roadmap checkpoint](ROADMAP.md#verified-quiet-glass-review--october-26-2026).
 
 **Design thesis:** *Calm by default. Useful at a glance. Detailed on demand.* FRIDAY means “Make every day feel like Friday.” All apps should feel related through predictability, visual quiet, touch/focus behavior and performance—not through identical screens, a large shared logo or a mandatory runtime package.
 
@@ -78,10 +78,15 @@ Private Kept/calendar content is hidden on shared TV by default. Cross-product d
 
 Follow [`docs/DESIGN_ACCEPTANCE.md`](DESIGN_ACCEPTANCE.md). Require before/after evidence at representative screen sizes; contrast, 200% text, reduced motion, focus/D-pad, keyboard and screen-reader checks; loading/empty/stale/error/offline tests; mobile scroll/GPU and TV startup responsiveness; asset provenance, privacy, and rollback notes. Use only synthetic data in external design services.
 
-Adoption sequence: FRIDAY proposal review → BallerWatch and Kept independently implement semantically mapped tokens in PRs → visual/a11y comparison → Vela TV maps tokens natively and gets actual Sony/Samsung device verification → only then consider a shared reusable package if duplication warrants it. No FRIDAY docs PR automatically deploys a product.
+Adoption record: FRIDAY design contract merged → all three child apps independently merged Quiet Glass source and published through their own release gates → **remaining:** compare visual/accessibility results on real iPhones, Sony and Samsung devices. Do not assume native Sony/Samsung parity. Consider a shared reusable package only after verified repeated need; no FRIDAY docs PR automatically deploys a product.
 
 ## Editable design reference
 
 [FRIDAY — Quiet Glass Design Foundations v1 (Figma)](https://www.figma.com/design/NRtSsXVig8SxEt5jdWNLUV)
 
-The file currently contains **19 dark color/spacing/radius variables, a reviewed three-product family specimen, and an editable `StatusBadge` component with Info/Success/Notice variants**. Figma's connected Starter plan allowed only one variable mode in this file; light values are documented here and in token JSON pending available multi-mode support or separate light collections. These are foundation examples, **not complete product mockups or a shipped component package**.
+As inspected October 26, this file contains **19 dark color/spacing/radius variables, a three-product family specimen, and an editable `StatusBadge` component with Info/Success/Notice variants**. The user's Figma seat is now **Professional (Full)**. The file itself **still has a single variable mode** from its earlier Starter-era creation; do not describe Quiet/Light modes as present until built and reviewed. Reconcile editable dark/light modes with [source tokens](../design/tokens.v1.json) and add reusable primitives only where they help child apps. These are foundations, **not full child-app mockups or a shipped runtime component package**.
+
+
+## UI title and label capitalization
+
+Use **Title Case** for concise user-facing navigation headings, settings group names, and other labels that function as titles: `Household & Sync`, `Apps & Activity`, `Device & Support`. Capitalize the first meaningful letter after `&`. Keep instruction paragraphs, errors, normal notifications, user-entered data, proper names, acronyms and brand spellings in their natural casing; do not run blanket capitalization across dynamic strings. Check screen-reader naming and localization. Roll out through each app's release gates; track in [FRIDAY #25](https://github.com/vudh1/friday/issues/25).

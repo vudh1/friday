@@ -1,0 +1,29 @@
+{
+  "name": "FRIDAY Quiet Glass",
+  "schemaVersion": 1,
+  "status": "proposal",
+  "platforms": ["web", "android-tv", "tizen"],
+  "colors": {
+    "dark": {
+      "canvas": "#0D121B",
+      "surface": { "base": "#18212E", "raised": "#243143" },
+      "text": { "primary": "#F4F6FA", "secondary": "#ADB7C5" },
+      "border": { "subtle": "#3C4B5D" },
+      "focus": { "ring": "#BCEAFF" },
+      "accent": { "ballerwatch": "#68CFF7", "kept": "#89D7AE", "velatv": "#F2C47E" }
+    },
+    "light": {
+      "canvas": "#F5F7F9",
+      "surface": { "base": "#FFFFFF", "raised": "#E8EDF1" },
+      "text": { "primary": "#131D29", "secondary": "#4D5A68" },
+      "border": { "subtle": "#D3DCE4" },
+      "focus": { "ring": "#205E8C" },
+      "accent": { "ballerwatch": "#187CA8", "kept": "#286A4A", "velatv": "#8E5B14" }
+    }
+  },
+  "spacingPx": { "1": 4, "2": 8, "3": 12, "4": 16, "6": 24, "8": 32 },
+  "radiusPx": { "small": 12, "card": 18, "dialog": 24 },
+  "motionMs": { "interact": [150, 220], "navigate": [220, 350] },
+  "principles": ["calm-default", "summary-first", "details-on-demand", "privacy-by-default", "offline-first", "reduced-motion"],
+  "notes": "Values are proposals. Verify contrast, reduced motion, performance, native TV focus and platform suitability before product adoption."
+}

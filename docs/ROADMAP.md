@@ -35,7 +35,8 @@ This is a **priority proposal**, not a release promise. Track implementation thr
 ## P3 — Refinement
 
 - [ ] Shared notification routing, with no duplicate alerts.
-- [ ] Versioned design tokens used by two or more apps, with visual regression checks.
+- [ ] Versioned design tokens used by two or more apps, **with verified semantic mappings and visual regression checks** ([design issue #6](https://github.com/vudh1/friday/issues/6)). BallerWatch, Kept and Vela source/release adoption was reported October 26; independent visual/a11y hardware acceptance remains open.
+- [ ] Adopt consistent Title Case for user-facing navigation/settings labels across child apps, with documented exceptions ([issue #25](https://github.com/vudh1/friday/issues/25)).
 - [ ] Optional cross-product assistant/search using existing budgets; no client-side provider keys.
 - [ ] Monitoring for freshness, quota and degraded mode; backups and tested recovery.
 - [ ] Keep a non-sensitive integration manifest and detect contract/documentation drift ([issue #20](https://github.com/vudh1/friday/issues/20)); first manual [register](INTEGRATION_REGISTER.md) staged for review.
@@ -66,3 +67,17 @@ An implementation issue should state the owning repository, user value, dependen
 This table is a dated **October 25 checkpoint**, not an assertion that these are the latest app releases. Current source additionally documents Vela's two-TV/four-controller scope and BallerWatch's stable-profile code as gated in [issues #5](https://github.com/vudh1/friday/issues/5) and [#12](https://github.com/vudh1/friday/issues/12); Kept's isolated OAuth preview remains draft [PR #11](https://github.com/vudh1/kept/pull/11). See [execution plan](EXECUTION_PLAN.md) before attempting activation.
 
 This table is evidence-bound. **Code merged** does not mean its integration is exposed; **cloud deployed** does not prove physical-device operation. FRIDAY has no deployed central runtime. Continue to use the individual repositories' release gates and preserve existing BallerWatch/Vela ICS while integrating.
+
+
+## Verified Quiet Glass review — October 26, 2026
+
+These records supersede *only the UI/release evidence* in the October 25 checkpoint above. Do not infer completion of the independent integration, privacy or hardware tracks.
+
+| Owner | Verified GitHub evidence | Remaining gate / issue |
+| --- | --- | --- |
+| **FRIDAY design** | [Quiet Glass contract #24](https://github.com/vudh1/friday/pull/24) merged; [editable Figma foundation](https://www.figma.com/design/NRtSsXVig8SxEt5jdWNLUV), Professional Full seat verified | 19 existing variables still in one dark mode; reconcile real dark/light Figma modes with `design/tokens.v1.json`, complete cross-device acceptance [#6](https://github.com/vudh1/friday/issues/6) and Title Case policy [#25](https://github.com/vudh1/friday/issues/25). |
+| **BallerWatch** | Quiet Glass [#215](https://github.com/vudh1/ballerwatch/pull/215), [production #217](https://github.com/vudh1/ballerwatch/pull/217), [v11.11.2](https://github.com/vudh1/ballerwatch/releases/tag/v11.11.2), [promotion](https://github.com/vudh1/ballerwatch/actions/runs/40281493723), [Worker](https://github.com/vudh1/ballerwatch/actions/runs/40281510738), [Pages](https://github.com/vudh1/ballerwatch/actions/runs/40281746502) successful | [#218](https://github.com/vudh1/ballerwatch/issues/218): Figma lacks full editable mobile flows; iPhone/accessibility/offline acceptance not proven. |
+| **Kept** | Quiet Glass [#13](https://github.com/vudh1/kept/pull/13), Figma alignment [#14](https://github.com/vudh1/kept/pull/14), [validation](https://github.com/vudh1/kept/actions/runs/40286046017), [browser smoke](https://github.com/vudh1/kept/actions/runs/40286047173), [Pages](https://github.com/vudh1/kept/actions/runs/40286046045) successful | [#15](https://github.com/vudh1/kept/issues/15): real-iPhone accessibility, encrypted multi-device/offline and recovery validation missing; **no Kept→TV grants**. |
+| **Vela TV** | Quiet Glass [#46](https://github.com/vudh1/velatv/pull/46), screensaver fix [#47](https://github.com/vudh1/velatv/pull/47), production [#49](https://github.com/vudh1/velatv/pull/49), [signed Sony APK v22601](https://github.com/vudh1/velatv/releases/tag/v22601), [Sony workflow](https://github.com/vudh1/velatv/actions/runs/40285377312), [web remote Pages](https://github.com/vudh1/velatv/actions/runs/40283859156) successful | [#50](https://github.com/vudh1/velatv/issues/50): actual Sony install/remote 2-TV/4-controller/wake checks, Samsung separate WGT parity check and README release-doc drift. |
+
+**Status definitions:** source merged ≠ automated tests ≠ cloud/site or APK published ≠ physically installed/device-verified. Actual release logs above establish the middle stages only. The child repositories remain the release source of truth. Third-party [RSVP](https://github.com/nhcuong95/rsvp) is read-only upstream and was not changed.

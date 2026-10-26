@@ -84,4 +84,4 @@ Adoption sequence: FRIDAY proposal review → BallerWatch and Kept independently
 
 [FRIDAY — Quiet Glass Design Foundations v1 (Figma)](https://www.figma.com/design/NRtSsXVig8SxEt5jdWNLUV)
 
-The file currently contains the **dark semantic token and spacing/radius foundations plus a reviewed family specimen**. Figma's connected Starter plan allowed only one variable mode in this file; light values are documented here and in token JSON pending available multi-mode support or separate light collections. The file is a foundation specimen, **not a complete product mockup or a shipped component package**.
+The file currently contains **19 dark color/spacing/radius variables, a reviewed three-product family specimen, and an editable `StatusBadge` component with Info/Success/Notice variants**. Figma's connected Starter plan allowed only one variable mode in this file; light values are documented here and in token JSON pending available multi-mode support or separate light collections. These are foundation examples, **not complete product mockups or a shipped component package**.

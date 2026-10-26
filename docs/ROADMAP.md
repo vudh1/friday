@@ -1,6 +1,6 @@
 # FRIDAY Roadmap
 
-This is a **priority proposal**, not a release promise. Track implementation through GitHub issues and a single cross-repository **FRIDAY Roadmap** GitHub Project board.
+This is a **priority proposal**, not a release promise. Track implementation through GitHub issues and a single cross-repository **FRIDAY Roadmap** GitHub Project board. For concrete next actions and copyable product-project handoffs, see the [execution plan](EXECUTION_PLAN.md) and [integration register](INTEGRATION_REGISTER.md).
 
 ## P0 — Foundation
 
@@ -27,7 +27,7 @@ This is a **priority proposal**, not a release promise. Track implementation thr
 
 - [ ] Audit existing app login flows and decide if managed identity is needed.
 - [ ] Support household membership, per-TV profiles and revocable read grants.
-- [ ] Secure pairing for a web/phone Vela remote with a single active controller; verify network and device constraints.
+- [ ] Verify secure Sony web/phone remote pairing for **up to four independently paired controllers per TV** and **up to two TVs per phone**; test network/device constraints, isolated command leases and revocation on real hardware. Samsung capabilities remain separate.
 - [ ] Deep links/QR handoff from TV to the owning application.
 
 **Exit:** a user can revoke a paired device and cross-app access immediately within an explicitly tested window.
@@ -38,6 +38,9 @@ This is a **priority proposal**, not a release promise. Track implementation thr
 - [ ] Versioned design tokens used by two or more apps, with visual regression checks.
 - [ ] Optional cross-product assistant/search using existing budgets; no client-side provider keys.
 - [ ] Monitoring for freshness, quota and degraded mode; backups and tested recovery.
+- [ ] Keep a non-sensitive integration manifest and detect contract/documentation drift ([issue #20](https://github.com/vudh1/friday/issues/20)); first manual [register](INTEGRATION_REGISTER.md) staged for review.
+- [ ] Model cardless free-tier capacity across Vela relay, Workers, D1, API/AI requests and refreshes, with fail-closed behavior ([issue #21](https://github.com/vudh1/friday/issues/21)).
+- [ ] Run a shared-profile privacy, revocation, stale-cache and offline acceptance matrix without copying private state ([issue #22](https://github.com/vudh1/friday/issues/22)).
 
 **Exit:** faster common interactions, validated privacy/reliability, and no mandatory recurring cost.
 
@@ -59,5 +62,7 @@ An implementation issue should state the owning repository, user value, dependen
 | Event projection v1 | FRIDAY [#9](https://github.com/vudh1/friday/pull/9) + [#10](https://github.com/vudh1/friday/pull/10), [successful CI](https://github.com/vudh1/friday/actions/runs/40189152574) | Draft schema and synthetic validation/tests merged; runtime producer/consumer implementation and identity/security approval still open [#1](https://github.com/vudh1/friday/issues/1). |
 | Kept reminders | Kept [#2](https://github.com/vudh1/kept/pull/2), [validate](https://github.com/vudh1/kept/actions/runs/40188733405), [Pages publish](https://github.com/vudh1/kept/actions/runs/40188733408), [ADR](DECISIONS/0001-kept-reminder-consent.md) | Owner approved limited data class; pure local helper merged. **No sharing feed or TV grants deployed**; [issue #3](https://github.com/vudh1/friday/issues/3) open. |
 | Vela web remote | [Worker run #5](https://github.com/vudh1/velatv/actions/runs/40187216573), production [PR #19](https://github.com/vudh1/velatv/pull/19), [signed 2.5.14.1](https://github.com/vudh1/velatv/releases/tag/v21401) | Worker and signed APK released; offline TV reported by relay. Sony installation, PIN pairing, exclusive controller, revocation and Samsung scope not physically verified; [issue #5](https://github.com/vudh1/friday/issues/5) open. |
+
+This table is a dated **October 25 checkpoint**, not an assertion that these are the latest app releases. Current source additionally documents Vela's two-TV/four-controller scope and BallerWatch's stable-profile code as gated in [issues #5](https://github.com/vudh1/friday/issues/5) and [#12](https://github.com/vudh1/friday/issues/12); Kept's isolated OAuth preview remains draft [PR #11](https://github.com/vudh1/kept/pull/11). See [execution plan](EXECUTION_PLAN.md) before attempting activation.
 
 This table is evidence-bound. **Code merged** does not mean its integration is exposed; **cloud deployed** does not prove physical-device operation. FRIDAY has no deployed central runtime. Continue to use the individual repositories' release gates and preserve existing BallerWatch/Vela ICS while integrating.
